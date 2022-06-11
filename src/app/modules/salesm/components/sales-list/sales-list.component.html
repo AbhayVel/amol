@@ -1,0 +1,39 @@
+<p>sales-list works!</p>
+
+<button type="button" (click)="showError(1)">Show Error</button>
+
+
+<br />
+<button type="button" (click)="showOf()">OF Example</button>
+<br />
+<button type="button" (click)="showMyOf()">My OF Example</button>
+
+
+<br />
+<button type="button" (click)="showInterval()">Interval Example</button>
+<button type="button" (click)="stopInterval()">Stop Interval Example</button>
+<br />
+<button type="button" (click)="showMyInterval()">My Interval Example</button>
+<button type="button" (click)="stopMyInterval()">Stop My Interval Example</button>
+
+<br />
+<input type="text" #t />
+<button type="button" (click)="addEvent(t)">Add Event Example</button>
+<button type="button" (click)="stopEvent()">Stop Event Example</button>
+
+<br />
+<input type="text" #tMy />
+<button type="button" (click)="addEventMy(tMy)">Add Event  My Example</button>
+<button type="button" (click)="stopEventMy()">Stop Event My Example</button>
+
+
+
+<br />
+<button type="button" (click)="showOfPipe()">OF Example</button>
+<br />
+<button type="button" (click)="showMyOfPipe()">My OF Example</button>
+
+
+<router-outlet></router-outlet>
+
+

@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let t of parent(tree,first)">
+    {{t.name}}
+    <qdn-tree [tree]="tree" [first]="t.id"></qdn-tree>
+  </li>
+</ul>

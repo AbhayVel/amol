@@ -1,0 +1,59 @@
+
+<!--<form #userForm="ngForm">-->
+<div *ngIf="isUserFormSet">
+  <form [formGroup]="userForm">
+
+    {{user | json}}
+
+
+    <qdn-text-box [formGroup]="userForm"  controlName="id"></qdn-text-box>
+
+
+    <qdn-text-box [formGroup]="userForm" formName="name" controlName="firstName"></qdn-text-box>
+
+    <div class="mb-3" formGroupName="name">
+      <label for="lastName" class="form-label">Last Name</label>
+      <!--<input type="text" required class="form-control" id="lastName" name="user.name.lastName" [(ngModel)]="user.name.lastName" placeholder="lastName">-->
+      <input type="text" required class="form-control" id="lastName" formControlName="lastName" placeholder="lastName">
+
+      <!--<span class="error" *ngIf="error['name.lastName']?.required">Last Name is Required</span>-->
+    </div>
+
+    <div class="mb-3">
+      <label for="gender" class="form-label">Gender</label>
+      <select required formControlName="gender">
+        <option value="">--Select--</option>
+        <option value="M">Male</option>
+        <option value="F">FeMale</option>
+        <option value="O">Other</option>
+      </select>
+
+      <span class="error" *ngIf="userForm.get('gender')?.errors?.required">Gender is Required</span>
+    </div>
+
+    <div class="mb-3">
+      <label for="Fees" class="form-label">Fees</label>
+      <input type="text" required formControlName="fees" placeholder="lastName">
+      <span class="error" *ngIf="userForm.get('fees')?.errors?.required">Fees is  required</span>
+      <span class="error" *ngIf="userForm.get('fees')?.errors?.min">Fees should be 10000 or more</span>
+      <span class="error" *ngIf="userForm.get('fees')?.errors?.max">Fees should be 50000 or less</span>
+    </div>
+
+    <div class="mb-3">
+      <label for="Fees" class="form-label">Doj</label>
+      <input type="text" qdnIsAuthorizedDisabled="Admin" required formControlName="doj" placeholder="doj">
+    </div>
+
+    <!--<div class="mb-3">
+    <label for="gender" class="form-label">Active</label>
+    <select required formControlName="status">
+      <option value="">--Select--</option>
+      <option value="Active">Active</option>
+      <option value="InActive">InActive</option>
+    </select>
+
+    <span class="error" *ngIf="userForm.get('gender')?.errors?.required">Gender is Required</span>
+  </div>-->
+    <button type="button" (click)="save(userForm)">Save</button>
+  </form>
+</div>

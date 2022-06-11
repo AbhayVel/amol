@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+  <script>
+
+
+  //  Url / End Point => "https://batch1504-325aa.firebaseio.com/.json" --> BE Developer
+// Methods --> "get" --> BE Developer 
+
+    function getData() {
+
+      var http = new XMLHttpRequest();
+
+      http.open("get", "https://batch1504-325aa.firebaseio.com/.json");
+
+      http.onreadystatechange = function () {
+        if (this.readyState == 4) {
+          if (this.status == 200) {
+            debugger;
+          } else {
+            debugger;
+          }
+
+        }
+      }
+
+      http.send();
+    }
+
+  </script>
+</head>
+<body>
+
+  <button type="button" onclick="getData()">Get Data</button>
+
+</body>
+</html>

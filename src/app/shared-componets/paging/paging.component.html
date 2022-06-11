@@ -1,0 +1,11 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item" (click)="pageChange(1)"><a class="page-link"> <<  </a></li>
+
+    <li class="page-item" (click)="pageChange(config.currentPage -1)"><a class="page-link">Previous</a></li>
+    <li class="page-item" *ngFor="let p of config.pages" [class.active]="p==config.currentPage" (click)="pageChange(p)"><a class="page-link" [innerHTML]="p"></a></li>
+    <li class="page-item" (click)="pageChange(config.currentPage +1)"><a class="page-link">Next</a></li>
+
+    <li class="page-item" (click)="pageChange(config.pages[config.pages.length-1])"><a class="page-link"> >>  </a></li>
+  </ul>
+</nav>

@@ -1,0 +1,57 @@
+<p>dept-list works!</p>
+
+
+<div class="page-heading">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>DataTable</h3>
+        <p class="text-subtitle text-muted">For user to check they list</p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="card">
+      <div class="card-header">
+        Simple Datatable
+      </div>
+      <div class="card-body">
+        <qdn-tree  [tree]="tree" first="0"></qdn-tree>
+
+
+        <qdn-accordian showAllA="0">
+
+          <ng-template qdnAccordian  isShow="1" header="First">
+            I am first
+          </ng-template>
+
+          <ng-template qdnAccordian isShow="0" header="Home">
+            I am second
+          </ng-template>
+
+          <ng-template qdnAccordian  isAlwaysShow="1" isShow="0" header="Sales">
+            <app-first></app-first>
+          </ng-template>
+
+          <ng-template qdnAccordian isShow="0" header="Department">
+
+          </ng-template>
+          <ng-template qdnAccordian isShow="0" header="Users">
+
+          </ng-template>
+
+
+        </qdn-accordian>
+      </div>
+    </div>
+
+  </section>
+</div>

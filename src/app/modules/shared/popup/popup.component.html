@@ -1,0 +1,17 @@
+<div class="modal fade" [class.show]="config.isShow" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog"   >
+    <div class="modal-content" [class.show-dialog]="config.isShowDialog"  [class.hide-dialog]="!config.isShowDialog">
+      <div class="modal-header" *ngIf="config.isHeader">
+        <h5 class="modal-title" id="exampleModalLabel">{{config.header}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="hideClick()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ng-content></ng-content>
+      </div>
+      <div class="modal-footer" *ngIf="config.isFooter">
+        <button type="button" *ngIf="config.isShowCloseButton" class="btn btn-secondary" (click)="hideClick()" data-bs-dismiss="modal"  [innerHTML]="config.closeButtonText"></button>
+        <button type="button" *ngIf="config.isShowSaveButton" class="btn btn-primary" (click)="saveClick()"  [innerHTML]="config.saveButtonText"></button>
+      </div>
+    </div>
+  </div>
+</div>

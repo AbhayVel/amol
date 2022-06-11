@@ -1,0 +1,16 @@
+.show {
+  display: block;
+  padding-left: 0px;
+}
+
+.show-dialog {
+  left: 0px;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
+  transition: 5s;
+}
+
+.hide-dialog {
+  left: 500px;
+  transform: rotateX(270deg) rotateY(279deg) rotateZ(270deg) scale(0);
+  transition: 5s;
+}

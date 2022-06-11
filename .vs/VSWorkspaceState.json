@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\modules",
+    "\\src\\app\\modules\\salesm",
+    "\\src\\app\\modules\\salesm\\components",
+    "\\src\\app\\modules\\salesm\\components\\sales-list",
+    "\\src\\app\\modules\\salesm\\services"
+  ],
+  "SelectedNode": "\\src\\app\\modules\\salesm\\components\\sales-list\\sales-list.component.ts",
+  "PreviewInSolutionExplorer": false
+}

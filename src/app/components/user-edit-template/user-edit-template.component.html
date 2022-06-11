@@ -1,0 +1,60 @@
+
+<form  #userForm="ngForm">
+
+  {{user | json}}
+  <div class="mb-3">
+    <label for="Id" class="form-label">User Id</label>
+
+    
+    <input type="text" class="form-control" id="Id" placeholder="Id" [ngModelOptions]="{standalone: true}" [ngModel]="user.id" disabled>
+  </div>
+  <div class="mb-3">
+    <label for="firstName" class="form-label">First Name</label>
+    <!--<input type="text" required class="form-control" id="firstName" pattern="[A-Za-z]{3,20}" name="name.firstName" [value]="user.name?.firstName" (input)="changeValue($event)" placeholder="firstName">
+
+
+  <span class="error" *ngIf="error['name.firstName']?.required">First Name is Required</span>
+  <span class="error" *ngIf="error['name.firstName']?.pattern">First Name should be alphabat only</span>-->
+
+
+    <input type="text" required class="form-control" id="firstName" pattern="[A-Za-z]{3,20}" name="user.name.firstName" [(ngModel)]="user.name.firstName" placeholder="firstName" #firstName="ngModel">
+    <input type="text" required class="form-control" id="firstName" pattern="[A-Za-z]{3,20}" [ngModelOptions]="{standalone: true}" name="RepfirstName" [ngModel]="repValue" placeholder="firstName" #RepfirstName="ngModel">
+    <span class="error" *ngIf="RepfirstName?.errors?.compare">First Name should match</span>
+
+
+    <span class="error" *ngIf="userForm.controls['user.name.firstName']?.errors?.required">First Name is Required</span>
+    <span class="error" *ngIf="userForm.controls['user.name.firstName']?.errors?.pattern">First Name should be alphabat only</span>
+    <span class="error" *ngIf="userForm.controls['user.name.firstName']?.errors?.captial">First Name should start with capital char</span>
+
+  </div>
+
+
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last Name</label>
+     <input type="text" required class="form-control" id="lastName" name="user.name.lastName" [(ngModel)]="user.name.lastName" placeholder="lastName">-->
+    <!--<span class="error" *ngIf="error['name.lastName']?.required">Last Name is Required</span>-->
+
+  </div>
+
+  <div class="mb-3">
+    <label for="gender" class="form-label">Gender</label>
+    <input type="text" required class="form-control" id="gender" name="gender" [(ngModel)]="user.gender"  placeholder="lastName">
+    <!-- <span class="error" *ngIf="error['gender']?.required">Gender is Required</span>-->
+  </div>
+
+  <div class="mb-3">
+    <label for="Fees" class="form-label">Fees</label>
+    <!--<input type="text" required class="form-control" id="gender" name="fees" [value]="user.fees" min="10000" max="50000" (input)="changeValue($event)" placeholder="lastName">
+  <span class="error" *ngIf="error['fees']?.required">Fees is  required</span>
+  <span class="error" *ngIf="!error['fees']?.required && error['fees']?.min">Fees should be 10000 or more</span>
+  <span class="error" *ngIf="!error['fees']?.required && error['fees']?.max">Fees should be 50000 or less</span>-->
+    <input type="text" required class="form-control" id="gender" name="fees"  #fees="ngModel" [(ngModel)]="user.fees" min="10000" max="50000" placeholder="lastName">
+    <span class="error" *ngIf="userForm.controls['fees']?.errors?.required">Fees is  required</span>
+  <span class="error" *ngIf="userForm.controls['fees']?.errors?.min">Fees should be 10000 or more</span>
+  <span class="error" *ngIf="userForm.controls['fees']?.errors?.max">Fees should be 50000 or less</span> 
+
+
+  </div>
+
+  <button type="button" (click)="save(userForm)">Save</button>
+</form>

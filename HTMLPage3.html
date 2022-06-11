@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+
+  <script>
+
+    var userArray = [
+      {
+        id: 1,
+        name: 'Amol F',
+        gender: 'M',
+        doj: '25/04/2021',
+        subject: 'Angular',
+        fees: 25000,
+        status: 'active'
+      },
+      {
+        id: 2,
+        name: 'Yogesh L',
+        gender: 'M',
+        doj: '12/04/2021',
+        subject: '.net',
+        fees: 35000,
+        status: 'active'
+      },
+      {
+        id: 3,
+        name: 'Kaustubh k',
+        gender: 'M',
+        doj: '12/02/2021',
+        subject: '.net',
+        fees: 20000,
+        status: 'active'
+      },
+      {
+        id: 4,
+        name: 'Komal',
+        gender: 'F',
+        doj: '10/01/2021',
+        subject: 'Java',
+        fees: 30000,
+        status: 'inactive'
+      }
+
+    ]
+
+    //ES 5 
+
+    for (var i = 0; i < userArray.length; i++) {
+      console.log("1. " + userArray[i].name);
+    }
+
+    for (var key in userArray) {
+      console.log("2. " + userArray[key].name);
+    }
+
+    //ES 6 -> let of 
+
+    for (let obj of userArray) {
+      console.log("3. " + obj.name);
+    }
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

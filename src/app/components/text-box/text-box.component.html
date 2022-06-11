@@ -1,0 +1,21 @@
+
+<div class="mb-3" [formGroup]="formGroup">
+  <div *ngIf="formControlName" [formGroupName]="formControlName">
+    <label for="firstName" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="firstName" placeholder="firstName" [formControlName]="controlName" />
+    <span class="error" *ngIf="formGroup.get(controlNameError)?.errors?.required">First Name is Required</span>
+    <span class="error" *ngIf="formGroup.get(controlNameError)?.errors?.pattern">First Name should be alphabat only</span>
+    <span class="error" *ngIf="formGroup.get(controlNameError)?.errors?.captial">First Name should start with capital char</span>
+
+  </div>
+
+
+  <div *ngIf="!formControlName">
+    <label for="firstName" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="firstName" placeholder="firstName" [formControlName]="controlName" />
+    <span class="error" *ngIf="formGroup.get(controlNameError)?.errors?.required">First Name is Required</span>
+    <span class="error" *ngIf="formGroup.get(controlNameError)?.errors?.pattern">First Name should be alphabat only</span>
+    <span class="error" *ngIf="formGroup.get(controlNameError)?.errors?.captial">First Name should start with capital char</span>
+
+  </div>
+</div>

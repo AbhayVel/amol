@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+  <script>
+
+    class Emplyee {
+      id = 0;
+
+      show() {
+        alert(this.id);
+      }
+
+      constructor(id) {
+        this.id = id;
+      }
+    }
+
+    function Person(id){
+      this.id = id;
+    }
+
+    Person.prototype.show = function () {
+      alert(this.id);
+    }
+
+    var objE = new Emplyee(1);
+    var objP = new Person(1);
+    var objP2 = new Person(1);
+
+    objE.show();
+    objP.show();
+
+
+  </script>
+</head>
+<body>
+
+
+  Class
+  Object
+  encapsu..
+  abstraction/hiding
+  Polly
+
+
+  inheritance
+
+
+</body>
+</html>

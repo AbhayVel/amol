@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+  <a qunroute="users">Users</a> | <a qunroute="dept">Department</a> | <a qunroute="subject">Subject</a>
+
+
+
+  <div  qun-view>
+    I am in index;
+  </div>
+
+
+  <script>
+
+    window.addEventListener('load', function () {
+    var routerList=  document.querySelectorAll("[qunroute]")
+
+
+      for (var i = 0; i < routerList.length; i++) {
+
+        routerList[i].setAttribute('href', routerList[i].getAttribute("qunroute"))
+        routerList[i].addEventListener('click', function () {
+
+          event.preventDefault();
+          var route = this.getAttribute("qunroute");
+
+          
+          routeChange(route);
+        }.bind(routerList[i]))
+      }
+
+      routeChange('users')
+
+    })
+
+    function routeChange(hashValue) {
+       
+
+
+      var ele = document.querySelector("[qun-view]")
+      if (hashValue == "users") {
+        ele.innerHTML = `
+I am in Users;
+
+`
+      } else if (hashValue == "dept") {
+
+        ele.innerHTML = `
+<p>first works!</p>
+
+
+<div class="cls" [textContent]="name">
+  I am in Dept
+</div>
+`
+
+      } else if (hashValue == "subject") {
+
+        ele.innerHTML = `
+<p>first works!</p>
+
+
+<div class="cls" [textContent]="name">
+  I am in subject
+</div>
+
+`
+
+      }
+
+
+
+
+      history.pushState(null, null, hashValue);
+    }
+
+
+  </script>
+
+</body>
+</html>

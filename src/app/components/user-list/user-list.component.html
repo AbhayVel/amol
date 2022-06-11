@@ -1,0 +1,143 @@
+<div class="page-heading">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>DataTable</h3>
+        <p class="text-subtitle text-muted">For user to check they list</p>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="card">
+      <div class="card-header">
+        Simple Datatable
+      </div>
+      <div class="card-body">
+
+        <button type="button" *ngIf="'Admin,sales' | role" (click)="add()">Add</button>
+        <button type="button" (click)="show()">CLick</button>
+        {{d}}
+        <input type="text" [(qdnDate)]="d" />
+        Search value :  {{tsId.value}}
+        <table class="table table-striped" id="table1">
+          <thead>
+            <tr>
+              <th rowspan="2" *ngIf="'Admin,sales' | role">Edit</th>
+              <th rowspan="2"  *ngIf="'Admin' | role">Delete</th>
+              <th (click)="sortData('id', 'num')">Id</th>
+              <th (click)="sortData('name', 'cistr')">Name</th>
+              <th (click)="sortData('gender','cistr')">Gender</th>
+              <th (click)="sortData('doj','date')">doj</th>
+              <th (click)="sortData('subject','csstr')">Subject</th>
+              <th (click)="sortData('fees','num')">Fees</th>
+              <th (click)="sortData('status','cistr')">Status</th>
+            </tr>
+
+            <tr>
+              <th><input type="text" #tsId (input)="search('id',tsId.value)" class="search" /></th>
+              <th><input type="text" #tsName (input)="search('name',tsName.value)" class="search" /></th>
+              <th>
+
+                <select #tsGender (change)="search('gender',tsGender.value)" class="search">
+                  <option value="">--Select--</option>
+                  <option value="M">Male</option>
+                  <option value="F">FeMale</option>
+                  <option value="O">Other</option>
+                </select>
+
+
+              </th>
+              <th>
+                <input type="text" #tsDojGte (blur)="search('dojGte',tsDojGte.value)" class="search" />
+                <input type="text" #tsDojLte (blur)="search('dojLte',tsDojLte.value)" class="search" />
+              </th>
+              <th>
+
+                <select #tsSubject (change)="search('subject',tsSubject.value)">
+                  <option value="">--Select--</option>
+                  <option *ngFor="let s of subjectArray" [value]="s.id" [innerHTML]="s.name">.net</option>
+                </select>
+
+
+              </th>
+              <th>
+                <input type="text" #tsFeesGte (blur)="search('feesGte',tsFeesGte.value)" class="search" />
+                <input type="text" #tsFeesLte (blur)="search('feesLte',tsFeesLte.value)" class="search" />
+
+
+              </th>
+              <th>
+
+                <select #tsStatus (change)="search('status',tsStatus.value)" class="search">
+                  <option value="">--Select--</option>
+                  <option value="Active">Active</option>
+                  <option value="InActive">InActive</option>
+
+                </select>
+
+              </th>
+
+            </tr>
+          </thead>
+          <tbody>
+
+            <!--<tr *ngFor="let u of filterConfig.rows | filter:filterConfig | qdnsortp:sortConfig">-->
+
+            <tr *ngFor="let u of filterConfig.rows">
+
+              <td *ngIf="'Admin,sales' | role">
+
+                <button type="button" (click)="editSamePage(u)">Edit Same Page</button>
+
+                <button type="button" (click)="edit(u)">Edit</button>
+
+                <button type="button" (click)="editR(u)">Edit-R</button>
+
+              </td>
+              <td  *ngIf="'Admin' | role"><button type="button"  (click)="deleteUser(u)">Delete</button></td>
+              <td>{{u.id}}</td>
+              <!--<td [innerHTML]="u.gender=='M' ? 'Mr ' + u.name : 'Miss ' + u.name">Male</td>-->
+
+              <td [innerHTML]="u.name | genderTitle:u.gender"></td>
+              <td [textContent]="u.gender | gender"></td>
+              <td [innerText]="u.doj">Angular</td>
+              <td [innerText]="u.subject | subjectMaster">Angular</td>
+              <td [innerText]="u.fees">Angular</td>
+              <!--<td>
+        <span class="badge" [class.bg-success]="u.status==='active'" [class.bg-danger]="u.status==='inactive'" [innerHTML]="u.status | uppercase">Active</span>-->
+              <!--<span class="badge bg-success" [innerHTML]="u.status">Active</span>-->
+              <!--</td>-->
+
+              <td [innerHTML]="u.status | lowercase | status">
+              </td>
+            </tr>
+
+
+
+          </tbody>
+        </table>
+
+        <qdn-paging [config]="filterConfig" (change)="pageChange($event)"></qdn-paging>
+
+        <qdn-popup [config]="popupConfig" #popRef (closeEvent)="popupCLose()">
+
+          <!--<qdn-user-edit-own  [user]="user"></qdn-user-edit-own>-->
+          <qdn-user-edit-template *ngIf="popupConfig.isShow" [user]="user"></qdn-user-edit-template>
+        </qdn-popup>
+
+
+        <router-outlet></router-outlet>
+
+      </div>
+    </div>
+
+  </section>
+</div>

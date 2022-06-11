@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+  <script>
+    var btnClick = function () {
+      event.stopPropagation();
+     alert("I am click button")
+    }
+
+    var show = function () {
+      alert("I am click Div")
+    }
+
+    
+  </script>
+
+  <script>
+      (function (a) {
+        alert("I am call" + a)
+      })("Thanks");
+  </script>
+</head>
+<body>
+
+  <div onclick="show()">
+
+    <button type="button" onclick="btnClick()">Btn</button>
+  </div>
+
+</body>
+</html>

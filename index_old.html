@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+  <a href="#users">Users</a> | <a href="#dept">Department</a> | <a href="#subject">Subject</a>
+
+
+
+  <div  qun-view>
+    I am in index;
+  </div>
+
+
+  <script>
+
+    window.onhashchange = function () {
+      var hash = location.hash;
+
+      var hashValue = hash.substr(1);
+      if (!hashValue) {
+        hashValue = "users";
+      }
+
+
+      var ele = document.querySelector("[qun-view]")
+      if (hashValue == "users") {
+        ele.innerHTML = `
+I am in Users;
+
+`
+      } else if (hashValue == "dept") {
+
+        ele.innerHTML = `
+<p>first works!</p>
+
+
+<div class="cls" [textContent]="name">
+  I am in Dept
+</div>
+`
+
+      } else if (hashValue == "subject") {
+
+        ele.innerHTML = `
+<p>first works!</p>
+
+
+<div class="cls" [textContent]="name">
+  I am in subject
+</div>
+
+`
+
+      }
+
+    }
+
+
+  </script>
+
+</body>
+</html>

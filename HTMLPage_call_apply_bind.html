@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+
+  <script>
+
+    var obj2 = {
+      id: 1,
+      Name: "Kaustubh",
+      other:1
+    }
+     
+    var obj = {
+      id: 1,
+      Name:"ABhay"
+    }
+
+    function show() {
+      alert(this.Name);
+    }
+
+    var fun = show.bind(obj);
+    fun();
+
+    var fun2 = show.bind(obj2);
+    fun2();
+    
+    
+  </script>
+
+  <code-script>
+
+    
+
+  </code-script>
+</head>
+<body>
+
+
+  Let var const
+
+</body>
+</html>
